@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+	name="${rootArtifactId}-parent"
+	xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ 
+    <requiredProperties>
+        <requiredProperty key="project-name" >
+        	<defaultValue>${artifactId}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="property-file-name">
+            <defaultValue>resource-default</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="spring-version">
+            <defaultValue>5.0.8.RELEASE</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="jackson-version">
+            <defaultValue>2.9.5</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="junit-version">
+            <defaultValue>4.12</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="servlet-api-version">
+            <defaultValue>4.0.1</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="jsp-version">
+            <defaultValue>2.3.1</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="jstl-version">
+            <defaultValue>1.2</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="java-version">
+            <defaultValue>1.8</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="log4j-version">
+            <defaultValue>2.9.1</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="hamcrest-version">
+            <defaultValue>1.3</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="mongodb-version">
+            <defaultValue>3.6.1</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="cglib-version">
+            <defaultValue>2.2.2</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="spring-data-version">
+            <defaultValue>2.0.9.RELEASE</defaultValue>
+        </requiredProperty>                          
+    </requiredProperties>
+ 
+    <!--Add new fileset for resources -->
+    <!--Set filtered="true" to process files in that directory as templates -->
+    <!--Set packaged="false" to remove package folder structure from resource directory -->
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+      		<directory></directory>
+      		<includes>
+        		<include>README.md</include>
+        		<include>Procfile</include>
+      		</includes>
+    	</fileSet>
+        
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+            <directory>src/main/java</directory>
+            <includes>
+        		<include>**/*.java</include>
+      		</includes>
+        </fileSet>
+        
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+            <directory>src/test/java</directory>
+            <includes>
+        		<include>**/*.java</include>
+      		</includes>
+        </fileSet>
+        
+	    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+	      <directory>src/main/webapp</directory>
+	      <includes>
+	        <include>**/*</include>
+	      </includes>
+	    </fileSet>        
+        
+        <fileSet encoding="UTF-8">
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>*.xml</include>
+                <include>*.properties</include>
+                <include>**/*.properties</include>
+            </includes>
+            <excludes>
+                <exclude>*.txt</exclude>
+            </excludes>            
+        </fileSet>
+    </fileSets>
+ 
+</archetype-descriptor>
